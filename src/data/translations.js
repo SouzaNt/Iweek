@@ -13,15 +13,13 @@ export const translations = {
     nav_33_careers: "33 Carreiras",
     nav_faq: "Dúvidas",
     nav_btn_interview: "Entrevista IA",
-    nav_btn_quiz: "Abrir Bússola",
     nav_new_badge: "NOVO",
 
     // Hero Section
     hero_line_1: "Não sabe por onde começar na TI?",
     hero_line_2: "A gente desenha o mapa para você.",
-    hero_subtitle: "Descubra qual área da tecnologia combina com você em 3 perguntas rápidas ou faça nossa Entrevista com IA.",
-    hero_btn_quiz: "Iniciar Quiz Rápido",
-    hero_btn_interview: "Entrevista com IA (5 Perguntas)",
+    hero_subtitle: "Descubra qual área da tecnologia combina com você em um bate-papo inteligente com a nossa IA.",
+    hero_btn_interview: "Iniciar Entrevista com IA",
     hero_btn_radar: "Ver Radar Tech",
     hero_badge_free: "100% Gratuito & Gamificado",
     hero_badge_ai: "IA Diagnóstico Cognitivo",
@@ -31,10 +29,9 @@ export const translations = {
     radar_badge: "RADAR AO VIVO",
     radar_header_badge: "RADAR DE HABILIDADES & DIAGNÓSTICO TECH",
     radar_title: "Qual classe tech combina mais com o seu cérebro?",
-    radar_desc: "Escolha uma das áreas abaixo para ver o mapa inicial ou faça o teste de 1 minuto:",
-    radar_btn_test: "Quiz Rápido",
-    radar_btn_interview: "Entrevista IA",
-    radar_play_intro: "Testar Bússola",
+    radar_desc: "Escolha uma das áreas abaixo para ver o mapa inicial ou faça o diagnóstico com a IA:",
+    radar_btn_interview: "Iniciar Entrevista com IA",
+    radar_play_intro: "Bússola de Carreira",
 
     // Radar 5 Classes
     class_frontend_title: "Dev Frontend",
@@ -58,19 +55,19 @@ export const translations = {
     class_ux_tech: "Figma • UX",
 
     // Feature Cards (Como Funciona)
-    features_badge: "MÉTODO SIMPLES & GAMIFICADO",
+    features_badge: "MÉTODO SIMPLES & INTELIGENTE",
     features_title: "Como o NorTech te ajuda a decolar",
     features_desc: "Esqueça tutoriais confusos e dezenas de caminhos perdidos. Nós simplificamos a sua entrada na tecnologia em 3 etapas claras.",
     
-    step1_tag: "1 Minuto",
+    step1_tag: "Conversa IA",
     step1_badge: "Passo Inicial",
-    step1_title: "Responda o Radar em 3 Perguntas",
-    step1_desc: "Sem termos difíceis! Perguntas visuais e práticas sobre o que você mais gosta de fazer e imaginar no dia a dia.",
+    step1_title: "Bata um Papo com a IA NorTech",
+    step1_desc: "Sem termos difíceis! Perguntas abertas e descontraídas para entender suas paixões e como você resolve desafios.",
 
-    step2_tag: "Inteligente",
+    step2_tag: "Akinator Tech",
     step2_badge: "Algoritmo de Afinidade",
     step2_title: "Descubra sua Classe Tech Ideal",
-    step2_desc: "Nosso sistema calcula a sua compatibilidade com Frontend, Backend ou Análise de Dados.",
+    step2_desc: "Nosso motor cognitivo analisa seu perfil e ranqueia as melhores profissões sob medida para você.",
 
     step3_tag: "100% Grátis",
     step3_badge: "Destino Traçado",
@@ -78,8 +75,8 @@ export const translations = {
     step3_desc: "Receba uma trilha direta ao ponto com as tecnologias mais pedidas no mercado, projetos práticos e cursos recomendados.",
 
     features_callout_title: "Pronto para descobrir seu talento tech?",
-    features_callout_desc: "Leva apenas 60 segundos e você já sai com seu checklist pronto.",
-    features_callout_btn: "Iniciar Quiz de 3 Perguntas",
+    features_callout_desc: "Faça o diagnóstico com nossa IA e receba sua trilha de estudos completa.",
+    features_callout_btn: "Iniciar Entrevista com IA",
 
     // Career Roadmaps Preview
     roadmaps_badge: "EXPLORADOR DE CARREIRAS",
@@ -107,7 +104,7 @@ export const translations = {
     catalog_modal_salary: "Média salarial no Brasil",
     catalog_modal_highlight: "Destaque de Atuação",
     catalog_modal_skills: "Tecnologias & Habilidades Principais",
-    catalog_modal_btn_test: "Fazer Teste de 3 Perguntas",
+    catalog_modal_btn_test: "Fazer Entrevista com IA",
     catalog_modal_btn_close: "Fechar",
 
     // Akinator Tech
@@ -135,7 +132,7 @@ export const translations = {
     timeline_btn_access: "Acessar Curso Grátis",
     timeline_btn_whatsapp: "Compartilhar meu Mapa (WhatsApp)",
     timeline_copied_whatsapp: "Texto Copiado & Abrindo WhatsApp!",
-    timeline_btn_restart: "Refazer Teste",
+    timeline_btn_restart: "Refazer Entrevista",
 
     // Footer & FAQ
     faq_badge: "PERGUNTAS FREQUENTES",
@@ -172,15 +169,13 @@ export const translations = {
     nav_33_careers: "33 Careers",
     nav_faq: "FAQ",
     nav_btn_interview: "AI Interview",
-    nav_btn_quiz: "Open Compass",
     nav_new_badge: "NEW",
 
     // Hero Section
     hero_line_1: "Don't know where to start in tech?",
     hero_line_2: "We draw the roadmap for you.",
-    hero_subtitle: "Discover which technology field matches your profile in 3 quick questions or take our AI Interview.",
-    hero_btn_quiz: "Start Quick Quiz",
-    hero_btn_interview: "AI Interview (5 Questions)",
+    hero_subtitle: "Discover which technology field matches your profile in an intelligent chat with our AI.",
+    hero_btn_interview: "Start AI Interview",
     hero_btn_radar: "View Tech Radar",
     hero_badge_free: "100% Free & Gamified",
     hero_badge_ai: "AI Cognitive Diagnosis",
@@ -190,10 +185,9 @@ export const translations = {
     radar_badge: "LIVE RADAR",
     radar_header_badge: "SKILLS RADAR & TECH DIAGNOSTIC",
     radar_title: "Which tech class matches your brain?",
-    radar_desc: "Pick one of the areas below to see the starting roadmap or take the 1-minute test:",
-    radar_btn_test: "Quick Quiz",
-    radar_btn_interview: "AI Interview",
-    radar_play_intro: "Test Compass",
+    radar_desc: "Pick one of the areas below to see the starting roadmap or take the AI diagnostic:",
+    radar_btn_interview: "Start AI Interview",
+    radar_play_intro: "Career Compass",
 
     // Radar 5 Classes
     class_frontend_title: "Frontend Dev",
@@ -217,19 +211,19 @@ export const translations = {
     class_ux_tech: "Figma • UX",
 
     // Feature Cards
-    features_badge: "SIMPLE & GAMIFIED METHOD",
+    features_badge: "SIMPLE & SMART METHOD",
     features_title: "How NorTech helps you launch",
     features_desc: "Forget confusing tutorials and dead ends. We simplify your tech onboarding into 3 clear steps.",
 
-    step1_tag: "1 Minute",
+    step1_tag: "AI Chat",
     step1_badge: "Initial Step",
-    step1_title: "Answer the 3-Question Radar",
-    step1_desc: "No complicated jargon! Practical, visual questions about what you love doing most.",
+    step1_title: "Chat with NorTech AI",
+    step1_desc: "No complicated jargon! Open, friendly questions to understand your passions and problem-solving style.",
 
-    step2_tag: "Intelligent",
+    step2_tag: "Akinator Tech",
     step2_badge: "Affinity Algorithm",
     step2_title: "Discover Your Ideal Tech Class",
-    step2_desc: "Our engine computes your compatibility with Frontend, Backend, or Data Analysis.",
+    step2_desc: "Our engine computes your profile and ranks the best careers tailored to you.",
 
     step3_tag: "100% Free",
     step3_badge: "Destination Set",
@@ -237,8 +231,8 @@ export const translations = {
     step3_desc: "Get a curated path with market-demanded technologies, real projects, and free courses.",
 
     features_callout_title: "Ready to unlock your tech superpower?",
-    features_callout_desc: "Takes only 60 seconds and you leave with a complete checklist.",
-    features_callout_btn: "Start 3-Question Quiz",
+    features_callout_desc: "Chat with our AI and leave with your customized study checklist.",
+    features_callout_btn: "Start AI Interview",
 
     // Career Roadmaps Preview
     roadmaps_badge: "CAREER EXPLORER",
@@ -266,7 +260,7 @@ export const translations = {
     catalog_modal_salary: "Average Salary",
     catalog_modal_highlight: "Career Highlight",
     catalog_modal_skills: "Core Technologies & Skills",
-    catalog_modal_btn_test: "Take 3-Question Test",
+    catalog_modal_btn_test: "Take AI Interview",
     catalog_modal_btn_close: "Close",
 
     // Akinator Tech
@@ -294,7 +288,7 @@ export const translations = {
     timeline_btn_access: "Access Free Course",
     timeline_btn_whatsapp: "Share my Roadmap (WhatsApp)",
     timeline_copied_whatsapp: "Text Copied & Opening WhatsApp!",
-    timeline_btn_restart: "Retake Test",
+    timeline_btn_restart: "Retake Interview",
 
     // Footer & FAQ
     faq_badge: "FREQUENTLY ASKED QUESTIONS",
@@ -331,15 +325,13 @@ export const translations = {
     nav_33_careers: "33のIT職種",
     nav_faq: "よくある質問",
     nav_btn_interview: "AI面談診断",
-    nav_btn_quiz: "コンパスを開く",
     nav_new_badge: "新機能",
 
     // Hero Section
     hero_line_1: "ITのどこから始めればいいかわからない？",
     hero_line_2: "私たちがあなたのロードマップを描きます。",
-    hero_subtitle: "たった3つの質問、またはAIキャリア面談で、あなたにぴったりのテクノロジー分野を発見しましょう。",
-    hero_btn_quiz: "クイック診断を開始",
-    hero_btn_interview: "AI面談 (5つの質問)",
+    hero_subtitle: "NorTechのAIとのスマートな会話で、あなたにぴったりのテクノロジー分野を発見しましょう。",
+    hero_btn_interview: "AI面談診断を開始",
     hero_btn_radar: "ITレーダーを見る",
     hero_badge_free: "100% 無料＆ゲーム感覚",
     hero_badge_ai: "AI認知プロファイリング",
@@ -349,10 +341,9 @@ export const translations = {
     radar_badge: "リアルタイムレーダー",
     radar_header_badge: "スキルレーダー＆適性診断",
     radar_title: "あなたの脳に最もマッチするITクラスは？",
-    radar_desc: "以下の分野を選択してロードマップを見るか、1分間の診断を開始してください:",
-    radar_btn_test: "クイック診断",
-    radar_btn_interview: "AI面談",
-    radar_play_intro: "コンパスを試す",
+    radar_desc: "以下の分野を選択してロードマップを見るか、AI面談診断を開始してください:",
+    radar_btn_interview: "AI面談を開始",
+    radar_play_intro: "ITコンパス",
 
     // Radar 5 Classes
     class_frontend_title: "フロントエンド開発",
@@ -376,19 +367,19 @@ export const translations = {
     class_ux_tech: "Figma • UX",
 
     // Feature Cards
-    features_badge: "シンプルでゲーム感覚のステップ",
+    features_badge: "スマートで明快なステップ",
     features_title: "NorTechがあなたの飛躍を支える方法",
     features_desc: "複雑なチュートリアルで迷う必要はありません。3つの明快なステップでITへの扉を開きます。",
 
-    step1_tag: "1分間",
+    step1_tag: "AI対話",
     step1_badge: "最初のステップ",
-    step1_title: "3問のレーダー診断に回答",
-    step1_desc: "難しい専門用語はゼロ！日常の興味や直感に基づいた視覚的な質問です。",
+    step1_title: "NorTech AIと対話する",
+    step1_desc: "難しい専門用語はゼロ！自然な会話を通じて、あなたの興味や問題解決のスタイルを分析します。",
 
-    step2_tag: "AI適性分析",
+    step2_tag: "Akinator Tech",
     step2_badge: "マッチングアルゴリズム",
     step2_title: "あなたの理想のITクラスを判定",
-    step2_desc: "フロントエンド、バックエンド、データ分析などへの適合率を瞬時に算出します。",
+    step2_desc: "認知エンジンがあなたの回答を分析し、最も適したIT職種をランキング形式で提案します。",
 
     step3_tag: "完全無料",
     step3_badge: "ゴールを設定",
@@ -396,8 +387,8 @@ export const translations = {
     step3_desc: "市場で需要の高い技術、実践プロジェクト、無料講座へのリンクをお届けします。",
 
     features_callout_title: "あなたのITの才能を見つける準備はできましたか？",
-    features_callout_desc: "わずか60秒で、あなた専用の学習チェックリストが完成します。",
-    features_callout_btn: "3問の診断を開始",
+    features_callout_desc: "AIとの対話を完了して、あなた専用の学習チェックリストを受け取りましょう。",
+    features_callout_btn: "AI面談診断を開始",
 
     // Career Roadmaps Preview
     roadmaps_badge: "キャリアエクスプローラー",
@@ -425,7 +416,7 @@ export const translations = {
     catalog_modal_salary: "平均給与水準",
     catalog_modal_highlight: "活躍のハイライト",
     catalog_modal_skills: "主要スキル＆テクノロジー",
-    catalog_modal_btn_test: "適性診断を受ける",
+    catalog_modal_btn_test: "AI面談を受ける",
     catalog_modal_btn_close: "閉じる",
 
     // Akinator Tech
@@ -453,7 +444,7 @@ export const translations = {
     timeline_btn_access: "無料講座を開く",
     timeline_btn_whatsapp: "ロードマップをシェア (WhatsApp)",
     timeline_copied_whatsapp: "テキストをコピーしてWhatsAppを開きます！",
-    timeline_btn_restart: "診断をやり直す",
+    timeline_btn_restart: "面談をやり直す",
 
     // Footer & FAQ
     faq_badge: "よくあるご質問",
@@ -490,15 +481,13 @@ export const translations = {
     nav_33_careers: "33 Carreras",
     nav_faq: "Preguntas",
     nav_btn_interview: "Entrevista IA",
-    nav_btn_quiz: "Abrir Brújula",
     nav_new_badge: "NUEVO",
 
     // Hero Section
     hero_line_1: "¿No sabes por dónde empezar en TI?",
     hero_line_2: "Nosotros diseñamos el mapa para ti.",
-    hero_subtitle: "Descubre qué área de tecnología se adapta a ti en 3 preguntas rápidas o haz nuestra Entrevista con IA.",
-    hero_btn_quiz: "Iniciar Quiz Rápido",
-    hero_btn_interview: "Entrevista IA (5 Preguntas)",
+    hero_subtitle: "Descubre qué área de tecnología se adapta a ti en una conversación inteligente con nuestra IA.",
+    hero_btn_interview: "Iniciar Entrevista con IA",
     hero_btn_radar: "Ver Radar Tech",
     hero_badge_free: "100% Gratis y Gamificado",
     hero_badge_ai: "IA Diagnóstico Cognitivo",
@@ -508,10 +497,9 @@ export const translations = {
     radar_badge: "RADAR EN VIVO",
     radar_header_badge: "RADAR DE HABILIDADES Y DIAGNÓSTICO TECH",
     radar_title: "¿Qué clase tecnológica encaja mejor con tu mente?",
-    radar_desc: "Elige una de las áreas a continuación para ver el mapa inicial o haz el test de 1 minuto:",
-    radar_btn_test: "Quiz Rápido",
-    radar_btn_interview: "Entrevista IA",
-    radar_play_intro: "Probar Brújula",
+    radar_desc: "Elige una de las áreas a continuación para ver el mapa inicial o haz el diagnóstico con IA:",
+    radar_btn_interview: "Iniciar Entrevista con IA",
+    radar_play_intro: "Brújula de Carrera",
 
     // Radar 5 Classes
     class_frontend_title: "Dev Frontend",
@@ -535,19 +523,19 @@ export const translations = {
     class_ux_tech: "Figma • UX",
 
     // Feature Cards
-    features_badge: "MÉTODO SIMPLE Y GAMIFICADO",
+    features_badge: "MÉTODO SIMPLE E INTELIGENTE",
     features_title: "Cómo NorTech te ayuda a despegar",
     features_desc: "Olvídate de tutoriales confusos y caminos perdidos. Simplificamos tu entrada a la tecnología en 3 pasos claros.",
 
-    step1_tag: "1 Minuto",
+    step1_tag: "Chat IA",
     step1_badge: "Paso Inicial",
-    step1_title: "Responde el Radar en 3 Preguntas",
-    step1_desc: "¡Sin términos difíciles! Preguntas visuales y prácticas sobre lo que más te gusta hacer.",
+    step1_title: "Conversa con la IA NorTech",
+    step1_desc: "¡Sin términos difíciles! Preguntas abiertas y descontraídas para entender tus pasiones y cómo resuelves retos.",
 
-    step2_tag: "Inteligente",
+    step2_tag: "Akinator Tech",
     step2_badge: "Algoritmo de Afinidad",
     step2_title: "Descubre tu Clase Tech Ideal",
-    step2_desc: "Nuestro sistema calcula tu compatibilidad con Frontend, Backend o Análisis de Datos.",
+    step2_desc: "Nuestro motor cognitivo analiza tu perfil y clasifica las mejores profesiones a tu medida.",
 
     step3_tag: "100% Gratis",
     step3_badge: "Destino Trazado",
@@ -555,8 +543,8 @@ export const translations = {
     step3_desc: "Recibe una ruta directa con las tecnologías más demandadas, proyectos prácticos y cursos recomendados.",
 
     features_callout_title: "¿Listo para descubrir tu talento tech?",
-    features_callout_desc: "Toma solo 60 segundos y sales con tu checklist completo.",
-    features_callout_btn: "Iniciar Quiz de 3 Preguntas",
+    features_callout_desc: "Haz el diagnóstico con nuestra IA y recibe tu checklist de estudio completo.",
+    features_callout_btn: "Iniciar Entrevista con IA",
 
     // Career Roadmaps Preview
     roadmaps_badge: "EXPLORADOR DE CARRERAS",
@@ -584,7 +572,7 @@ export const translations = {
     catalog_modal_salary: "Salario promedio",
     catalog_modal_highlight: "Destacado de Carrera",
     catalog_modal_skills: "Tecnologías y Habilidades Clave",
-    catalog_modal_btn_test: "Hacer Test de 3 Preguntas",
+    catalog_modal_btn_test: "Hacer Entrevista con IA",
     catalog_modal_btn_close: "Cerrar",
 
     // Akinator Tech
@@ -612,10 +600,10 @@ export const translations = {
     timeline_btn_access: "Acceder a Curso Gratis",
     timeline_btn_whatsapp: "Compartir mi Ruta (WhatsApp)",
     timeline_copied_whatsapp: "¡Texto Copiado y Abriendo WhatsApp!",
-    timeline_btn_restart: "Rehacer Test",
+    timeline_btn_restart: "Rehacer Entrevista",
 
     // Footer & FAQ
-    faq_badge: "PREGUNTAS FRECUENTES",
+    faq_badge: "PREGUNTAS FREQUENTES",
     faq_title: "¿Tienes alguna duda?",
     footer_tagline: "Tu norte en el universo de la tecnología.",
     footer_inspira_credit: "Creado con 💡 para Inspira Week. Promoviendo la inclusión en la tecnología.",

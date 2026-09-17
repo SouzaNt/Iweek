@@ -5,9 +5,10 @@ import { soundFX } from '../utils/soundEffects';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 
-export default function Footer({ onStartQuiz }) {
+export default function Footer({ onStartInterview }) {
   const { lang, t } = useLanguage();
   const [openFaq, setOpenFaq] = useState(null);
+
   const [isVisible, setIsVisible] = useState(false);
   const footerRef = useRef(null);
 

@@ -4,7 +4,7 @@ import NorTechLogo from './NorTechLogo';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Navbar({ onStartQuiz, onStartInterview }) {
+export default function Navbar({ onStartInterview }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lang, t } = useLanguage();
 
@@ -120,27 +120,16 @@ export default function Navbar({ onStartQuiz, onStartInterview }) {
             {t('nav_faq')}
           </button>
           
-          <div className="pt-2 border-t border-purple-900/40 space-y-2">
+          <div className="pt-2 border-t border-purple-900/40">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onStartInterview();
               }}
-              className="w-full py-3 rounded-xl bg-purple-900/70 border border-purple-500/40 text-purple-200 font-bold text-center flex items-center justify-center gap-2 text-sm shadow-md active:scale-95"
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-neon-mint text-slate-950 font-bold text-center flex items-center justify-center gap-2 text-sm shadow-lg shadow-emerald-950/40 active:scale-95"
             >
-              <BrainCircuit className="w-4 h-4 text-neon-mint" />
+              <BrainCircuit className="w-4 h-4 text-slate-950" />
               <span>{t('nav_btn_interview')}</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onStartQuiz();
-              }}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-500 to-neon-mint text-slate-950 font-bold text-center flex items-center justify-center gap-2 text-sm shadow-lg shadow-purple-900/40 active:scale-95"
-            >
-              <Rocket className="w-4 h-4" />
-              <span>{t('nav_btn_quiz')}</span>
             </button>
           </div>
         </div>

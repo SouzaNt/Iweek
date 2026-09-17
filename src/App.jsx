@@ -5,21 +5,11 @@ import HeroSection from './components/HeroSection';
 import FeatureCards from './components/FeatureCards';
 import CareerRoadmapsPreview from './components/CareerRoadmapsPreview';
 import CareersCatalogSection from './components/CareersCatalogSection';
-import CareerQuizModal from './components/CareerQuizModal';
 import AIInterviewModal from './components/AIInterviewModal';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isInterviewOpen, setIsInterviewOpen] = useState(false);
-
-  const handleOpenQuiz = () => {
-    setIsQuizOpen(true);
-  };
-
-  const handleCloseQuiz = () => {
-    setIsQuizOpen(false);
-  };
 
   const handleOpenInterview = () => {
     setIsInterviewOpen(true);
@@ -37,41 +27,32 @@ export default function App() {
 
       {/* Navigation */}
       <Navbar 
-        onStartQuiz={handleOpenQuiz} 
         onStartInterview={handleOpenInterview} 
       />
 
       {/* Main Content Area */}
       <main className="flex-grow relative z-10">
-        {/* 1. Hero Section (with main title, subtitle, floating tech badges, radar, and dual CTAs) */}
+        {/* 1. Hero Section (with main title, subtitle, floating tech badges, radar, and AI Interview CTA) */}
         <HeroSection 
-          onStartQuiz={handleOpenQuiz} 
           onStartInterview={handleOpenInterview} 
         />
 
         {/* 2. Feature Cards (How it works - 3 steps) */}
         <FeatureCards 
-          onStartQuiz={handleOpenQuiz} 
           onStartInterview={handleOpenInterview} 
         />
 
         {/* 3. Career Roadmaps Preview (Interactive 3 starter careers with timeline tracks) */}
-        <CareerRoadmapsPreview onStartQuiz={handleOpenQuiz} />
+        <CareerRoadmapsPreview onStartInterview={handleOpenInterview} />
 
         {/* 4. Full 33 Tech Careers Catalog with Live Search & 5 Categories */}
-        <CareersCatalogSection onStartQuiz={handleOpenQuiz} />
+        <CareersCatalogSection onStartInterview={handleOpenInterview} />
       </main>
 
       {/* Footer */}
-      <Footer onStartQuiz={handleOpenQuiz} />
+      <Footer onStartInterview={handleOpenInterview} />
 
-      {/* Gamified 3-Question Quiz Modal */}
-      <CareerQuizModal 
-        isOpen={isQuizOpen} 
-        onClose={handleCloseQuiz} 
-      />
-
-      {/* AI Interview Chat Modal (5 Open Questions with Freeform Textarea & Quick Tags) */}
+      {/* AI Interview Chat Modal (5 Open Questions with Freeform Textarea, Quick Tags & Akinator Tech) */}
       <AIInterviewModal 
         isOpen={isInterviewOpen} 
         onClose={handleCloseInterview} 

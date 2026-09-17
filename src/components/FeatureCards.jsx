@@ -4,10 +4,11 @@ import TiltCard from './TiltCard';
 import { soundFX } from '../utils/soundEffects';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function FeatureCards({ onStartQuiz }) {
+export default function FeatureCards({ onStartInterview }) {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -166,7 +167,7 @@ export default function FeatureCards({ onStartQuiz }) {
               <button
                 onClick={() => {
                   soundFX.playWhoosh();
-                  onStartQuiz();
+                  if (onStartInterview) onStartInterview();
                 }}
                 className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 to-neon-mint hover:opacity-95 text-slate-950 font-extrabold text-sm flex items-center gap-2 shadow-lg shadow-emerald-950/60 transition-all duration-300 hover:scale-105 active:scale-95 flex-shrink-0 cursor-pointer"
               >

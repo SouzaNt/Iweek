@@ -76,7 +76,7 @@ const iconMap = {
   Rocket
 };
 
-export default function CareersCatalogSection({ onStartQuiz }) {
+export default function CareersCatalogSection({ onStartInterview }) {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -136,7 +136,7 @@ export default function CareersCatalogSection({ onStartQuiz }) {
   const handleStartFromCareer = () => {
     soundFX.playWhoosh();
     setSelectedCareer(null);
-    onStartQuiz();
+    if (onStartInterview) onStartInterview();
   };
 
   return (

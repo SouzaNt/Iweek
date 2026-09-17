@@ -22,7 +22,7 @@ import NorTechLogo from './NorTechLogo';
 import TiltCard from './TiltCard';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function HeroSection({ onStartQuiz, onStartInterview }) {
+export default function HeroSection({ onStartInterview }) {
   const { lang, t } = useLanguage();
   const [hoveredCard, setHoveredCard] = useState(null);
   
@@ -107,17 +107,9 @@ export default function HeroSection({ onStartQuiz, onStartInterview }) {
 
   const handleStart = () => {
     soundFX.playWhoosh();
-    onStartQuiz();
+    if (onStartInterview) onStartInterview();
   };
 
-  const handleStartAiInterview = () => {
-    soundFX.playWhoosh();
-    if (onStartInterview) {
-      onStartInterview();
-    } else {
-      onStartQuiz();
-    }
-  };
 
   const handleReplayIntro = () => {
     soundFX.playWhoosh();
@@ -295,29 +287,20 @@ export default function HeroSection({ onStartQuiz, onStartInterview }) {
               : 'opacity-0 translate-y-8 scale-90 pointer-events-none'
           }`}>
             
-            {/* Shimmering Animated Glowing Wrapper (Quiz Rápido) */}
+            {/* Shimmering Animated Glowing Wrapper (Entrevista com IA) */}
             <div className="p-[2px] rounded-2xl animated-glow-border shadow-2xl shadow-purple-950/60 w-full sm:w-auto">
               <button
                 onClick={handleStart}
                 id="cta-start-journey"
-                className="relative group cursor-pointer inline-flex items-center justify-center px-7 sm:px-9 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-400 to-neon-mint text-slate-950 font-display font-extrabold text-base sm:text-lg tracking-tight animate-pulse-glow hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
+                className="relative group cursor-pointer inline-flex items-center justify-center px-8 sm:px-10 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-400 to-neon-mint text-slate-950 font-display font-extrabold text-base sm:text-lg tracking-tight animate-pulse-glow hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto"
               >
                 <div className="flex items-center gap-2.5">
-                  <Rocket className="w-5 h-5 text-slate-950 group-hover:-translate-y-1.5 group-hover:rotate-12 transition-transform duration-300" />
-                  <span>{t('hero_btn_quiz')}</span>
+                  <BrainCircuit className="w-5 h-5 text-slate-950 group-hover:-translate-y-1.5 transition-transform duration-300" />
+                  <span>{t('hero_btn_interview')}</span>
                   <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </div>
               </button>
             </div>
-
-            {/* AI Interview CTA */}
-            <button
-              onClick={handleStartAiInterview}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-2xl bg-purple-900/60 hover:bg-purple-900/90 text-purple-200 hover:text-white border border-purple-500/50 font-bold text-base transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-purple-950/50 cursor-pointer"
-            >
-              <BrainCircuit className="w-5 h-5 text-neon-mint animate-pulse" />
-              <span>{t('hero_btn_interview')}</span>
-            </button>
 
             {/* Replay Option */}
             <button
@@ -419,17 +402,9 @@ export default function HeroSection({ onStartQuiz, onStartInterview }) {
               <div className="flex items-center gap-2 self-stretch md:self-auto">
                 <button
                   onClick={handleStart}
-                  className="flex-1 md:flex-none px-5 py-3 rounded-xl bg-purple-600/25 hover:bg-purple-600/35 border border-purple-400/50 text-purple-200 hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 justify-center shadow-lg shadow-purple-950/60 cursor-pointer"
+                  className="flex-1 md:flex-none px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-neon-mint text-slate-950 font-extrabold text-xs sm:text-sm transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 justify-center shadow-lg shadow-emerald-950/60 cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-neon-mint" />
-                  <span>{t('radar_btn_test')}</span>
-                </button>
-
-                <button
-                  onClick={handleStartAiInterview}
-                  className="flex-1 md:flex-none px-5 py-3 rounded-xl bg-purple-900/80 hover:bg-purple-800/90 border border-purple-400 text-white font-bold text-xs sm:text-sm transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 justify-center shadow-lg shadow-purple-950/60 cursor-pointer"
-                >
-                  <BrainCircuit className="w-4 h-4 text-neon-mint" />
+                  <BrainCircuit className="w-4 h-4 text-slate-950" />
                   <span>{t('radar_btn_interview')}</span>
                 </button>
               </div>

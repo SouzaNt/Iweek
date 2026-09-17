@@ -14,7 +14,7 @@ import { soundFX } from '../utils/soundEffects';
 import TiltCard from './TiltCard';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function CareerRoadmapsPreview({ onStartQuiz }) {
+export default function CareerRoadmapsPreview({ onStartInterview }) {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('frontend');
   const [isVisible, setIsVisible] = useState(false);
@@ -197,7 +197,7 @@ export default function CareerRoadmapsPreview({ onStartQuiz }) {
                 <button
                   onClick={() => {
                     soundFX.playWhoosh();
-                    onStartQuiz();
+                    if (onStartInterview) onStartInterview();
                   }}
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500 hover:opacity-95 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-purple-950/70 transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
                 >
