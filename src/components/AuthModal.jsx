@@ -21,7 +21,8 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { soundFX } from '../utils/soundEffects';
 import NorTechLogo from './NorTechLogo';
-import GoogleOAuthModal from './GoogleOAuthModal';
+import GoogleClientIdModal from './GoogleClientIdModal';
+import { triggerOfficialGoogleSignIn } from '../utils/googleAuthService';
 
 export default function AuthModal() {
   const { 
@@ -40,7 +41,7 @@ export default function AuthModal() {
   const [authMethod, setAuthMethod] = useState('email'); // 'email' | 'phone'
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
+  const [isGoogleConfigOpen, setIsGoogleConfigOpen] = useState(false);
 
   // Form Fields
   const [name, setName] = useState('');
@@ -55,21 +56,35 @@ export default function AuthModal() {
 
   if (!isAuthModalOpen) return null;
 
-  // Handles Google Account Selection from Google OAuth Modal
-  const handleGoogleAccountSelected = (googleProfile) => {
-    setIsGoogleModalOpen(false);
-    setIsLoading(true);
+  // Triggers official Google Sign-In Popup (accounts.google.com)
+  const handleGoogleAuthClick = (providedClientId = null) => {
+    soundFX.playClick();
     setErrorMsg('');
 
-    setTimeout(() => {
-      const result = loginWithGoogle(googleProfile);
-      setIsLoading(false);
-      if (result.success) {
-        soundFX.playVictory();
-      } else {
-        setErrorMsg(result.message || 'Erro ao autenticar com o Google.');
+    const res = triggerOfficialGoogleSignIn({
+      clientId: providedClientId,
+      onSuccess: (authResult) => {
+        setIsLoading(false);
+        if (authResult.success) {
+          soundFX.playVictory();
+        } else {
+          setErrorMsg(authResult.message || 'Erro ao autenticar com o Google.');
+        }
+      },
+      onError: (err) => {
+        setIsLoading(false);
+        setErrorMsg(err);
       }
-    }, 400);
+    });
+
+    if (res.needsClientId) {
+      setIsGoogleConfigOpen(true);
+    }
+  };
+
+  const handleSaveClientIdAndLaunch = (savedClientId) => {
+    setIsGoogleConfigOpen(false);
+    handleGoogleAuthClick(savedClientId);
   };
 
   // Handles Email Register or Login
@@ -281,14 +296,11 @@ export default function AuthModal() {
               </button>
             </div>
 
-            {/* Social Google Login Button (Opens Google Account Selector) */}
+            {/* Official Google Login Button (Launches official accounts.google.com popup) */}
             <div>
               <button
                 type="button"
-                onClick={() => {
-                  soundFX.playClick();
-                  setIsGoogleModalOpen(true);
-                }}
+                onClick={() => handleGoogleAuthClick()}
                 disabled={isLoading}
                 className="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm flex items-center justify-center gap-3 shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer disabled:opacity-60"
               >
@@ -578,12 +590,11 @@ export default function AuthModal() {
         </div>
       </div>
 
-      {/* Google OAuth Modal Account Selector */}
-      <GoogleOAuthModal
-        isOpen={isGoogleModalOpen}
-        onClose={() => setIsGoogleModalOpen(false)}
-        onSelectAccount={handleGoogleAccountSelected}
-        existingAccounts={existingUsers}
+      {/* Google OAuth Client ID Configuration Modal */}
+      <GoogleClientIdModal
+        isOpen={isGoogleConfigOpen}
+        onClose={() => setIsGoogleConfigOpen(false)}
+        onSaveAndLaunch={handleSaveClientIdAndLaunch}
       />
     </>
   );

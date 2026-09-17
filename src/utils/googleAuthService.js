@@ -1,87 +1,69 @@
 import { authenticateGoogleUser } from '../data/usersDatabase';
 
 /**
- * Decodes standard JWT payload from Google Identity Services
+ * Triggers the official Google OAuth 2.0 popup from accounts.google.com
  */
-export function parseJwt(token) {
-  try {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(
-      window
-        .atob(base64)
-        .split('')
-        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-        .join('')
-    );
-    return JSON.parse(jsonPayload);
-  } catch (e) {
-    console.error('Failed to parse Google JWT token:', e);
-    return null;
+export function triggerOfficialGoogleSignIn({ clientId, onSuccess, onError }) {
+  const activeClientId = clientId || import.meta.env.VITE_GOOGLE_CLIENT_ID || localStorage.getItem('nortech_google_client_id');
+
+  if (!activeClientId) {
+    return {
+      success: false,
+      needsClientId: true,
+      message: 'Para abrir o popup oficial do Google (accounts.google.com), é necessário configurar o seu Google Client ID.'
+    };
   }
-}
 
-/**
- * Initializes Google Identity Services if a client ID is provided
- */
-export function initGoogleIdentityServices({ onCredentialResponse }) {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  if (!window.google?.accounts?.oauth2) {
+    const errorMsg = 'O script oficial do Google (accounts.google.com/gsi/client) ainda está carregando. Tente novamente em alguns segundos.';
+    onError?.(errorMsg);
+    return { success: false, message: errorMsg };
+  }
 
-  if (typeof window === 'undefined') return;
-
-  if (window.google?.accounts?.id && clientId) {
-    try {
-      window.google.accounts.id.initialize({
-        client_id: clientId,
-        callback: (response) => {
-          if (response.credential) {
-            const payload = parseJwt(response.credential);
-            if (payload) {
-              const googleProfile = {
-                googleEmail: payload.email,
-                googleName: payload.name,
-                googleAvatar: payload.picture,
-                googleSub: payload.sub
-              };
-              const authResult = authenticateGoogleUser(googleProfile);
-              if (onCredentialResponse && typeof onCredentialResponse === 'function') {
-                onCredentialResponse(authResult);
+  try {
+    const client = window.google.accounts.oauth2.initTokenClient({
+      client_id: activeClientId.trim(),
+      scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
+      callback: async (tokenResponse) => {
+        if (tokenResponse && tokenResponse.access_token) {
+          try {
+            // Fetch real user info directly from Google OAuth API
+            const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+              headers: {
+                Authorization: `Bearer ${tokenResponse.access_token}`
               }
+            });
+
+            if (!res.ok) {
+              throw new Error('Falha ao comunicar com a API do Google.');
             }
+
+            const profile = await res.json();
+            
+            const googleProfile = {
+              googleEmail: profile.email,
+              googleName: profile.name,
+              googleAvatar: profile.picture,
+              googleSub: profile.sub
+            };
+
+            const authResult = authenticateGoogleUser(googleProfile);
+            onSuccess?.(authResult);
+          } catch (fetchErr) {
+            onError?.('Erro ao obter perfil da conta Google: ' + fetchErr.message);
           }
-        },
-        auto_select: false,
-        cancel_on_tap_outside: true
-      });
-    } catch (err) {
-      console.warn('Google Identity Services init warning:', err);
-    }
-  }
-}
-
-/**
- * Renders the official Google Sign-In button into a DOM element if SDK is ready
- */
-export function renderGoogleButton(elementId, options = {}) {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-  if (!clientId || !window.google?.accounts?.id) return false;
-
-  const target = document.getElementById(elementId);
-  if (!target) return false;
-
-  try {
-    window.google.accounts.id.renderButton(target, {
-      theme: 'filled_black',
-      size: 'large',
-      shape: 'pill',
-      text: 'continue_with',
-      locale: 'pt_BR',
-      width: 320,
-      ...options
+        } else if (tokenResponse.error) {
+          onError?.('Autenticação Google cancelada ou erro: ' + tokenResponse.error);
+        }
+      }
     });
-    return true;
+
+    // Opens the REAL Google OAuth popup (accounts.google.com)
+    client.requestAccessToken({ prompt: 'select_account' });
+    return { success: true };
   } catch (err) {
-    console.error('Error rendering Google Button:', err);
-    return false;
+    console.error('Error opening official Google OAuth popup:', err);
+    onError?.('Erro ao iniciar o popup do Google: ' + err.message);
+    return { success: false, message: err.message };
   }
 }
