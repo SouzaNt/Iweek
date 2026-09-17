@@ -1,0 +1,32 @@
+[
+  {
+    "id": "usr_seed_1",
+    "name": "Lucas Silva",
+    "email": "lucas.silva@gmail.com",
+    "password": "senha123",
+    "phone": "(11) 98765-4321",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+    "provider": "google",
+    "createdAt": "2026-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "usr_seed_2",
+    "name": "Mariana Oliveira",
+    "email": "mariana.tech@gmail.com",
+    "password": "senha123",
+    "phone": "(11) 97654-3210",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+    "provider": "email",
+    "createdAt": "2026-02-10T14:30:00.000Z"
+  },
+  {
+    "id": "usr_seed_3",
+    "name": "Estudante NorTech",
+    "email": "estudante@nortech.com",
+    "password": "nortech2026",
+    "phone": "(21) 99888-7766",
+    "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80",
+    "provider": "email",
+    "createdAt": "2026-03-01T09:15:00.000Z"
+  }
+]

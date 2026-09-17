@@ -1,4 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { 
+  registerUser as dbRegisterUser, 
+  loginUser as dbLoginUser, 
+  authenticateGoogleUser as dbAuthenticateGoogleUser, 
+  authenticatePhoneUser as dbAuthenticatePhoneUser,
+  getAllUsers
+} from '../data/usersDatabase';
 
 const AuthContext = createContext();
 
@@ -42,46 +49,40 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const loginWithGoogle = () => {
-    const mockGoogleUser = {
-      id: 'g_' + Date.now(),
-      name: 'Estudante NorTech',
-      email: 'estudante.tech@gmail.com',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-      provider: 'google',
-      joinedAt: new Date().toISOString()
-    };
-    handleLoginSuccess(mockGoogleUser);
-    return mockGoogleUser;
+  // 1. Google OAuth Authenticate
+  const loginWithGoogle = (googleData) => {
+    const result = dbAuthenticateGoogleUser(googleData);
+    if (result.success && result.user) {
+      handleLoginSuccess(result.user);
+    }
+    return result;
   };
 
-  const loginWithEmail = ({ name, email, password, isSignUp = false }) => {
-    const emailUser = {
-      id: 'usr_' + Date.now(),
-      name: name || email.split('@')[0] || 'Usuário NorTech',
-      email: email,
-      avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(email)}`,
-      provider: 'email',
-      isSignUp,
-      joinedAt: new Date().toISOString()
-    };
-    handleLoginSuccess(emailUser);
-    return emailUser;
+  // 2. Email Login
+  const loginWithEmail = ({ email, password }) => {
+    const result = dbLoginUser({ email, password });
+    if (result.success && result.user) {
+      handleLoginSuccess(result.user);
+    }
+    return result;
   };
 
-  const loginWithPhone = ({ phone, code, isSignUp = false }) => {
-    const phoneUser = {
-      id: 'ph_' + Date.now(),
-      name: 'Explorador Tech',
-      phone: phone,
-      email: `${phone.replace(/\D/g, '')}@nortech.app`,
-      avatar: `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(phone)}`,
-      provider: 'phone',
-      isSignUp,
-      joinedAt: new Date().toISOString()
-    };
-    handleLoginSuccess(phoneUser);
-    return phoneUser;
+  // 3. Email Register (Cadastro)
+  const registerWithEmail = ({ name, email, password }) => {
+    const result = dbRegisterUser({ name, email, password, provider: 'email' });
+    if (result.success && result.user) {
+      handleLoginSuccess(result.user);
+    }
+    return result;
+  };
+
+  // 4. Phone Login / Register
+  const loginWithPhone = ({ phone, code, isSignUp = false, name = '' }) => {
+    const result = dbAuthenticatePhoneUser({ phone, code, isSignUp, name });
+    if (result.success && result.user) {
+      handleLoginSuccess(result.user);
+    }
+    return result;
   };
 
   const logout = () => {
@@ -99,8 +100,10 @@ export function AuthProvider({ children }) {
         closeAuthModal,
         loginWithGoogle,
         loginWithEmail,
+        registerWithEmail,
         loginWithPhone,
-        logout
+        logout,
+        getAllUsers
       }}
     >
       {children}
@@ -115,3 +118,4 @@ export function useAuth() {
   }
   return context;
 }
+
