@@ -1,0 +1,140 @@
+{
+  "frontend": {
+    "careerTitle": "Front-end",
+    "tagline": "Trilha recomendada para dominar interfaces modernas, visual e experiência do usuário.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "phaseName": "Fase 1 • Fundamentos",
+        "phaseColor": "emerald",
+        "title": "Lógica de Programação",
+        "whyStudy": "A base para pensar como dev e resolver problemas antes de escrever qualquer código complexo.",
+        "courseName": "Curso em Vídeo (Prof. Guanabara)",
+        "courseUrl": "https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV",
+        "isFree": true
+      },
+      {
+        "stepNumber": 2,
+        "phaseName": "Fase 2 • Estrutura & Visual",
+        "phaseColor": "amber",
+        "title": "HTML5 e CSS3 Moderno",
+        "whyStudy": "Aprenda a construir o esqueleto e estilizar páginas bonitas, responsivas e adaptadas para celular.",
+        "courseName": "freeCodeCamp Brasil (HTML/CSS)",
+        "courseUrl": "https://www.freecodecamp.org/portuguese/learn/2022/responsive-web-design/",
+        "isFree": true
+      },
+      {
+        "stepNumber": 3,
+        "phaseName": "Fase 3 • Interatividade",
+        "phaseColor": "sky",
+        "title": "JavaScript e Lógica Visual",
+        "whyStudy": "Dê vida e movimento aos seus sites com cliques dinâmicos, animações e conexão a dados reais.",
+        "courseName": "Curso em Vídeo (JavaScript)",
+        "courseUrl": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1",
+        "isFree": true
+      },
+      {
+        "stepNumber": 4,
+        "phaseName": "Fase 4 • Framework do Mercado",
+        "phaseColor": "purple",
+        "title": "React.js & Tailwind CSS",
+        "whyStudy": "A tecnologia mais pedida pelas empresas para criar interfaces velozes, modernas e profissionais.",
+        "courseName": "Documentação Interativa do React (Oficial)",
+        "courseUrl": "https://pt-br.react.dev/learn",
+        "isFree": true
+      }
+    ]
+  },
+  "backend": {
+    "careerTitle": "Back-end / Engenharia de Software",
+    "tagline": "Trilha recomendada para construir servidores velozes, bancos de dados e APIs robustas.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "phaseName": "Fase 1 • Lógica & Algoritmos",
+        "phaseColor": "emerald",
+        "title": "Lógica de Programação e Algoritmos",
+        "whyStudy": "Desenvolva o raciocínio analítico para entender fluxos de dados, condições e estruturas de decisão.",
+        "courseName": "Curso em Vídeo (Lógica)",
+        "courseUrl": "https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV",
+        "isFree": true
+      },
+      {
+        "stepNumber": 2,
+        "phaseName": "Fase 2 • Linguagem Central",
+        "phaseColor": "amber",
+        "title": "Linguagem Base: Python ou Java",
+        "whyStudy": "Domine uma linguagem poderosa para criar scripts, regras de negócio e sistemas de alta performance.",
+        "courseName": "Curso em Vídeo (Python 3)",
+        "courseUrl": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6",
+        "isFree": true
+      },
+      {
+        "stepNumber": 3,
+        "phaseName": "Fase 3 • Armazenamento",
+        "phaseColor": "sky",
+        "title": "Bancos de Dados & SQL",
+        "whyStudy": "Descubra como guardar, consultar e proteger milhões de informações de usuários e transações com segurança.",
+        "courseName": "Curso em Vídeo (MySQL / SQL)",
+        "courseUrl": "https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795D4nP86MzWpmO5sa",
+        "isFree": true
+      },
+      {
+        "stepNumber": 4,
+        "phaseName": "Fase 4 • APIs & Arquitetura",
+        "phaseColor": "purple",
+        "title": "Criação de APIs RESTful",
+        "whyStudy": "Aprenda a conectar aplicativos web e mobile ao seu servidor com autenticação e microsserviços.",
+        "courseName": "freeCodeCamp (Back-end & APIs)",
+        "courseUrl": "https://www.freecodecamp.org/portuguese/learn/back-end-development-and-apis/",
+        "isFree": true
+      }
+    ]
+  },
+  "data": {
+    "careerTitle": "Análise de Dados",
+    "tagline": "Trilha recomendada para transformar números brutos em insights e relatórios inteligentes.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "phaseName": "Fase 1 • Dados no Dia a Dia",
+        "phaseColor": "emerald",
+        "title": "Excel & Planilhas Inteligentes",
+        "whyStudy": "A ferramenta universal de negócios para organizar dados rápidos, fórmulas essenciais e tabelas dinâmicas.",
+        "courseName": "Fundação Bradesco (Excel Básico ao Avançado)",
+        "courseUrl": "https://www.ev.org.br/cursos/microsoft-excel-2016-basico",
+        "isFree": true
+      },
+      {
+        "stepNumber": 2,
+        "phaseName": "Fase 2 • Consultas em Massa",
+        "phaseColor": "amber",
+        "title": "SQL para Análise de Dados",
+        "whyStudy": "Aprenda a fazer perguntas a qualquer banco de dados do mundo e extrair exatamente os dados que precisa.",
+        "courseName": "freeCodeCamp (Bancos de Dados & SQL)",
+        "courseUrl": "https://www.freecodecamp.org/portuguese/learn/relational-database/",
+        "isFree": true
+      },
+      {
+        "stepNumber": 3,
+        "phaseName": "Fase 3 • Automação & Análise",
+        "phaseColor": "sky",
+        "title": "Python para Análise de Dados (Pandas)",
+        "whyStudy": "Automatize o tratamento de milhares de planilhas e descubra tendências ocultas usando Python.",
+        "courseName": "Kaggle Learn (Pandas & Python Grátis)",
+        "courseUrl": "https://www.kaggle.com/learn/pandas",
+        "isFree": true
+      },
+      {
+        "stepNumber": 4,
+        "phaseName": "Fase 4 • Visualização de Impacto",
+        "phaseColor": "purple",
+        "title": "Dashboards Interativos com Power BI",
+        "whyStudy": "Apresente gráficos incríveis e relatórios executivos que ajudam empresas a tomar decisões estratégicas.",
+        "courseName": "Microsoft Learn (Power BI Oficial)",
+        "courseUrl": "https://learn.microsoft.com/pt-br/training/powerplatform/power-bi",
+        "isFree": true
+      }
+    ]
+  }
+}

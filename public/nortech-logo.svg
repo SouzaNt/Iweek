@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <!-- Background filter for deep purple atmospheric glow -->
+    <filter id="superGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowMedium" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9D5FF"/>
+      <stop offset="30%" stop-color="#D8B4FE"/>
+      <stop offset="70%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#9333EA"/>
+    </linearGradient>
+
+    <linearGradient id="facetShadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7E22CE" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="facetShadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7E22CE" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#E9D5FF" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#000000" rx="20"/>
+
+  <g filter="url(#superGlow)" transform="translate(0, -10)">
+    <!-- NORTH NEEDLE (Top Point) -->
+    <!-- Left Facet -->
+    <polygon points="400,60 384,135 400,122" fill="url(#facetShadeLeft)" stroke="#C084FC" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Right Facet -->
+    <polygon points="400,60 416,135 400,122" fill="url(#facetShadeRight)" stroke="#E9D5FF" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- CODE SYMBOLS < / > in Center -->
+    <!-- Left Bracket < -->
+    <path d="M375,160 L345,185 L375,210" fill="none" stroke="#D8B4FE" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Center Slash / -->
+    <path d="M409,152 L391,218" fill="none" stroke="#D8B4FE" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Right Bracket > -->
+    <path d="M425,160 L455,185 L425,210" fill="none" stroke="#D8B4FE" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- SOUTH NEEDLE (Bottom Point) -->
+    <!-- Left Facet -->
+    <polygon points="400,285 384,225 400,238" fill="url(#facetShadeLeft)" stroke="#C084FC" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Right Facet -->
+    <polygon points="400,285 416,225 400,238" fill="url(#facetShadeRight)" stroke="#E9D5FF" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- NORTECH TYPOGRAPHY -->
+    <text x="400" y="360" text-anchor="middle" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="70" font-weight="900" letter-spacing="14" fill="#E9D5FF" stroke="#C084FC" stroke-width="2.5">
+      NORTECH
+    </text>
+  </g>
+</svg>
