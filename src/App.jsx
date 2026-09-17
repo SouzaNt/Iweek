@@ -6,13 +6,23 @@ import FeatureCards from './components/FeatureCards';
 import CareerRoadmapsPreview from './components/CareerRoadmapsPreview';
 import CareersCatalogSection from './components/CareersCatalogSection';
 import AIInterviewModal from './components/AIInterviewModal';
+import AuthModal from './components/AuthModal';
 import Footer from './components/Footer';
+import { useAuth } from './context/AuthContext';
 
 export default function App() {
   const [isInterviewOpen, setIsInterviewOpen] = useState(false);
+  const { isLoggedIn, openAuthModal } = useAuth();
 
   const handleOpenInterview = () => {
-    setIsInterviewOpen(true);
+    if (!isLoggedIn) {
+      // Directs user to login/signup modal first; once completed, automatically launches interview
+      openAuthModal(() => {
+        setIsInterviewOpen(true);
+      });
+    } else {
+      setIsInterviewOpen(true);
+    }
   };
 
   const handleCloseInterview = () => {
@@ -51,6 +61,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer onStartInterview={handleOpenInterview} />
+
+      {/* Authentication Modal (Sign Up / Sign In with Google, Phone or Email) */}
+      <AuthModal />
 
       {/* AI Interview Chat Modal (5 Open Questions with Freeform Textarea, Quick Tags & Akinator Tech) */}
       <AIInterviewModal 
