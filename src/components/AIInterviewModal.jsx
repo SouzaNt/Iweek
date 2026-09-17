@@ -15,6 +15,7 @@ import {
   getReactiveFeedback,
   generateInterviewPrompt 
 } from '../data/interviewData';
+import { queryGoogleGemini } from '../utils/geminiApi';
 import { soundFX } from '../utils/soundEffects';
 import AkinatorTechResult from './AkinatorTechResult';
 import { useLanguage } from '../context/LanguageContext';
@@ -155,7 +156,7 @@ export default function AIInterviewModal({ isOpen, onClose }) {
   };
 
   // Submit User Message
-  const handleSendMessage = (answerText) => {
+  const handleSendMessage = async (answerText) => {
     const finalAnswer = (answerText || inputText).trim();
     if (!finalAnswer || isAiTyping || isAiThinking) return;
 
@@ -168,18 +169,40 @@ export default function AIInterviewModal({ isOpen, onClose }) {
     ];
     setUserResponses(newResponses);
 
-    setMessages((prev) => [
-      ...prev,
+    const updatedMessages = [
+      ...messages,
       { id: Date.now(), sender: 'user', text: finalAnswer }
-    ]);
+    ];
+    setMessages(updatedMessages);
     setInputText('');
 
     // 2. AI Processing state (3 animated bouncing dots indicator)
     setIsAiThinking(true);
 
-    // 3. Evaluate if we proceed to next question or conclude with {"top_matches":
     const nextIndex = currentQuestionIndex + 1;
 
+    // Check if Google Gemini API is configured
+    if (import.meta.env.VITE_GEMINI_API_KEY) {
+      try {
+        const geminiRes = await queryGoogleGemini({
+          messages: updatedMessages,
+          userText: finalAnswer
+        });
+
+        if (geminiRes.success && geminiRes.text) {
+          setIsAiThinking(false);
+          if (nextIndex < totalQuestions) {
+            setCurrentQuestionIndex(nextIndex);
+          }
+          deliverAiMessage(geminiRes.text, nextIndex);
+          return;
+        }
+      } catch (e) {
+        console.warn('Gemini query fallback to local engine:', e);
+      }
+    }
+
+    // 3. Fallback to Local Smart Reactive Engine
     setTimeout(() => {
       setIsAiThinking(false);
 
@@ -199,7 +222,7 @@ export default function AIInterviewModal({ isOpen, onClose }) {
         
         deliverAiMessage(finalAiResponse, null);
       }
-    }, 1200);
+    }, 1100);
   };
 
   const handleRestart = () => {
